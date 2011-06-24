@@ -1,0 +1,32 @@
+<ficha>
+   <name>Questionário Social</name>
+   
+   <form id="0" required="yes">
+	   	<label>Você pratica algum esporte?</label>
+	   	<help>Texto que ajude o executor da pesquisa</help>
+		<radio_button>
+			<itens>
+				<item id="0">Sim</item>
+				<item id="1">Não</item>
+			</itens>
+		</radio_button>
+	</form>
+	
+	<form id="1" required="no">
+   	   <label>Quais equipamentos eletrônicos você tem em casa?</label>
+	   <check_box>
+			<itens>
+				<item id="0">Rádio</item>
+				<item id="1">Computador</item>
+				<item id="2">Televisão</item>
+				<item id="3">Aparelho de DVD</item>
+				<item id="4">Outros...</item>
+			</itens>
+		</check_box>
+	</form>
+	
+	<form id="2" required="no">
+	   <label>Qual nome do seu cachorro?</label>
+			<text_input>Deve ter alguma coisa nas tags ou dá pau no parser do Android =/</text_input>
+	</form>
+</ficha>
