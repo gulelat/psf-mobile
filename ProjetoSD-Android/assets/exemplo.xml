@@ -1,0 +1,43 @@
+﻿<ficha>
+   <nome>Questionário Social</nome>
+   
+   <campo tipo="opcao_unica" nome="pratica_esporte" obrigatorio="sim" ordem="0">
+	   	<rotulo>Você pratica algum esporte?</rotulo>
+	   	<ajuda>Texto que ajude o executor da pesquisa</ajuda>
+		<itens>
+			<item valor="S" ordem="0">Sim</item>
+			<item valor="N" ordem="1">Não</item>
+		</itens>
+		<valor_padrao>S</valor_padrao>
+	</campo>
+	
+	<campo tipo="opcao_multipla" nome="equipamentos_eletronicos" obrigatorio="nao" ordem="1">
+	   	<rotulo>Quais equipamentos eletrônicos você tem em casa?</rotulo>
+	   	<ajuda></ajuda>
+		<itens>
+			<item valor="R" ordem="0">Rádio</item>
+			<item valor="C" ordem="1">Computador</item>
+			<item valor="T" ordem="2">Televisão</item>
+			<item valor="A" ordem="3">Aparelho de DVD</item>
+			<item valor="O" ordem="4">Outros...</item>
+		</itens>
+		<valor_padrao>O</valor_padrao>
+	</campo>
+	
+	<campo tipo="texto" nome="nome_cachorro" obrigatorio="nao" ordem="2">
+	   	<rotulo>Qual nome do seu cachorro?</rotulo>
+	   	<ajuda></ajuda>
+		<tipo_dados>alfanumerico</tipo_dados>
+		<tamanho>50</tamanho>
+		<valor_padrao>Chopp</valor_padrao>
+	</campo>
+	
+	<campo tipo="texto" nome="idade_cachorro" obrigatorio="nao" ordem="3">
+	   	<rotulo>Qual a idade do seu cachorro?</rotulo>
+	   	<ajuda></ajuda>
+		<tipo_dados>numerico</tipo_dados>
+		<tamanho>3</tamanho>
+		<valor_padrao>8</valor_padrao>
+	</campo>
+
+</ficha>
