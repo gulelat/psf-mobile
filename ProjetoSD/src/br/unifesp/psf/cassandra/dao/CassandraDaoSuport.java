@@ -61,7 +61,7 @@ public class CassandraDaoSuport {
 								.invoke(objeto).toString(), StringSerializer
 								.get(), StringSerializer.get());
 				mutator.addInsertion(String.valueOf(id), objeto.getClass()
-						.getName(), column);
+						.getSimpleName(), column);
 			}
 		}
 		MutationResult mutationResult = mutator.execute();
@@ -84,7 +84,7 @@ public class CassandraDaoSuport {
 					.createColumnQuery(ko, StringSerializer.get(),
 							StringSerializer.get(), StringSerializer.get());
 
-			columnQuery.setColumnFamily(resultado.getClass().getName());
+			columnQuery.setColumnFamily(resultado.getClass().getSimpleName());
 			columnQuery.setKey(Long.toString(uuid));
 			columnQuery.setName(f.getName());
 			QueryResult<HColumn<String, String>> queryResult = columnQuery
@@ -113,7 +113,7 @@ public class CassandraDaoSuport {
 				StringSerializer.get());
 
 		mutator.addDeletion(getMethod(objeto, "getKey").invoke(objeto)
-				.toString(), objeto.getClass().getName());
+				.toString(), objeto.getClass().getSimpleName());
 		MutationResult mutationResult = mutator.execute();
 
 	}
@@ -131,7 +131,7 @@ public class CassandraDaoSuport {
 						StringSerializer.get(), StringSerializer.get());
 		indexedSlicesQuery.addEqualsExpression(campo, valor);
 		indexedSlicesQuery.setColumnNames(getNameFields(classe));
-		indexedSlicesQuery.setColumnFamily(classe.getName());
+		indexedSlicesQuery.setColumnFamily(classe.getSimpleName());
 		
 		QueryResult<OrderedRows<String, String, String>> result = indexedSlicesQuery
 				.execute();
