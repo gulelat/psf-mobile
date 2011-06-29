@@ -55,13 +55,17 @@ public class CassandraDaoSuport {
 
 		for (Field f : objeto.getClass().getDeclaredFields()) {
 			if (!f.getName().equals("key")) {
-				HColumn<String, String> column = HFactory.createColumn(f
-						.getName(),
-						getMethod(objeto, "get" + toUpperFirst(f.getName()))
-								.invoke(objeto).toString(), StringSerializer
-								.get(), StringSerializer.get());
-				mutator.addInsertion(String.valueOf(id), objeto.getClass()
-						.getSimpleName(), column);
+				Object result = getMethod(objeto, "get" + toUpperFirst(f.getName()))
+						.invoke(objeto);
+				
+				if(result!=null){
+					HColumn<String, String> column = HFactory.createColumn(f
+							.getName(),
+							result.toString(), StringSerializer
+									.get(), StringSerializer.get());
+					mutator.addInsertion(String.valueOf(id), objeto.getClass()
+							.getSimpleName(), column);
+				}
 			}
 		}
 		MutationResult mutationResult = mutator.execute();
@@ -93,7 +97,9 @@ public class CassandraDaoSuport {
 			String value = null;
 
 			if (!f.getName().equals("key")) {
-				value = queryResult.get().getValue();
+				if(queryResult!=null && queryResult.get()!=null){
+					value = queryResult.get().getValue();
+				}
 			} else {
 				value = Long.toString(uuid);
 			}
