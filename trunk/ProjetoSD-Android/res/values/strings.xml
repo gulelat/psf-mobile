@@ -6,5 +6,8 @@
     <string name="title_main">Questionário Social</string>
     <string name="end_label">Fim da pesquisa!</string>
     <string name="save_button">Salvar</string>
+    <string name="sql_CreateTable">
+    	"CREATE TABLE tbl_Dados (id INTEGER PRIMARY KEY AUTOINCREMENT, resultado TEXT);"
+    </string>
     
 </resources>

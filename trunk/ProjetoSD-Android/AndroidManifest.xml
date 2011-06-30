@@ -6,18 +6,28 @@
 <uses-permission android:name="android.permission.INTERNET" /> 
 
     <application android:icon="@drawable/icon" android:label="@string/title_main">
-        <activity android:name="projetosd.android.view.MainActivity"
-                  android:label="@string/title_main">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity
+        	android:name="projetosd.android.view.MainActivity"
+            android:label="@string/title_main">
+        	<intent-filter>
+        		<action android:name="android.intent.action.MAIN" />
+            	<category android:name="android.intent.category.LAUNCHER" />
+        	</intent-filter>
         </activity>
-        <activity android:name="projetosd.android.view.DynamicForm"
-        		  android:label="@string/title_form">
+        
+        <activity
+        	android:label="@string/create_form" android:name="projetosd.android.view.NewFormActivity">
         </activity>
-        <activity android:name="projetosd.android.view.LastPageActivity"
-        		  android:label="Fim da Pesquisa">
+        
+        <activity
+        	android:name="projetosd.android.view.DynamicForm"
+        	android:label="@string/title_form">
         </activity>
+        
+        <activity
+        	android:name="projetosd.android.view.LastPageActivity"
+        	android:label="Fim da Pesquisa">
+        </activity>
+        
     </application>
 </manifest>
