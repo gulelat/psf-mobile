@@ -1,7 +1,7 @@
 package br.unifesp.psf.cassandra.dao;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.List;
+//import java.util.List;
 
 public class Teste {
 	public static void main(String[] args) throws IllegalArgumentException, IllegalAccessException, SecurityException, NoSuchMethodException, InstantiationException, InvocationTargetException {
@@ -17,12 +17,13 @@ public class Teste {
 				User usuarioSalvo = (User) dao.save(base);
 				try{
 					
-					usuarioSalvo.setFirst(usuarioSalvo.getFirst()+"123");
+					usuarioSalvo.setFirst(usuarioSalvo.getFirst()+"111");
 					dao.save(usuarioSalvo);
 					
 					User user=(User) dao.get(User.class, usuarioSalvo.getKey());
 					
-					List<Object> users=dao.cQuery(User.class, "first", "Gustavo123");
+					//List<Object> users=dao.cQuery(User.class, "first", "Teste111");
+					dao.cQuery(User.class, "first", "Teste111");
 					
 					dao.delete(user);
 				}catch(Exception e){
