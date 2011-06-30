@@ -22,7 +22,8 @@ public class FormView extends LinearLayout {
 		answerComponent.add(view);
 		super.addView(view);
 	}
-	public String getAnswer() {
+	
+	public String getAnswer(int idPergunta) {
 		String answer = "";
 		if(getAnswerComponent()==null||getAnswerComponent().isEmpty())
 			return "";
@@ -31,20 +32,22 @@ public class FormView extends LinearLayout {
 				CheckBox checkBox = (CheckBox) iterator.next();
 				if(checkBox.isChecked()){
 					//TODO:Padronizar com outro grupo o formato da resposta de perguntas com checkbox
-					answer += ";" +checkBox.getTag().toString();
+					answer += idPergunta + ":" +checkBox.getTag().toString() + ";" ;
 				}
 			}
 			return answer;
 		}else if(getAnswerComponent().get(0) instanceof EditText){
-			return ((EditText)getAnswerComponent().get(0)).getText().toString();
+			answer = idPergunta + ":" + ((EditText)getAnswerComponent().get(0)).getText().toString() +";" ;
 		}else{
 			RadioGroup radioG = ((RadioGroup)getAnswerComponent().get(0));
 			RadioButton rButton = (RadioButton)findViewById(radioG.getCheckedRadioButtonId());
 			if(rButton!=null)
-				return rButton.getTag().toString();
+				answer = idPergunta + ":" + rButton.getTag().toString() + ";";
 			else
-				return "";
+				answer = idPergunta + ":" + " ;";
 		}
+		
+		return answer;
 	}
 	public void setAnswerComponent(List<View> answerComponent) {
 		this.answerComponent = answerComponent;

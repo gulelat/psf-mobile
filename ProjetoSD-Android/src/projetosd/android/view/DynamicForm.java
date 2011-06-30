@@ -145,7 +145,7 @@ public class DynamicForm extends Activity {
 		    }});
 		    alertDialog.show();
     	}else{
-    		if(formMap.get(pageIndex).getRequired() && "".equals(this.thisFormView.getAnswer())){
+    		if(formMap.get(pageIndex).getRequired() && "".equals(this.thisFormView.getAnswer(pageIndex))){
     			AlertDialog alertRequired = new AlertDialog.Builder(this).create();
     			alertRequired.setTitle("Resposta obrigatória");
     			alertRequired.setMessage("Responda a questão para avançar.");

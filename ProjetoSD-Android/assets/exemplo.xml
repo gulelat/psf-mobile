@@ -5,8 +5,8 @@
 	   	<rotulo>Você pratica algum esporte?</rotulo>
 	   	<ajuda>Texto que ajude o executor da pesquisa</ajuda>
 		<itens>
-			<item valor="S" ordem="0">Sim</item>
-			<item valor="N" ordem="1">Não</item>
+			<item valor="Sim" ordem="0">Sim</item>
+			<item valor="Não" ordem="1">Não</item>
 		</itens>
 		<valor_padrao>S</valor_padrao>
 	</campo>
@@ -15,11 +15,11 @@
 	   	<rotulo>Quais equipamentos eletrônicos você tem em casa?</rotulo>
 	   	<ajuda></ajuda>
 		<itens>
-			<item valor="R" ordem="0">Rádio</item>
-			<item valor="C" ordem="1">Computador</item>
-			<item valor="T" ordem="2">Televisão</item>
-			<item valor="A" ordem="3">Aparelho de DVD</item>
-			<item valor="O" ordem="4">Outros...</item>
+			<item valor="Rádio" ordem="0">Rádio</item>
+			<item valor="Computador" ordem="1">Computador</item>
+			<item valor="Televisão" ordem="2">Televisão</item>
+			<item valor="Aparelho de DVD" ordem="3">Aparelho de DVD</item>
+			<item valor="Outros" ordem="4">Outros...</item>
 		</itens>
 		<valor_padrao>O</valor_padrao>
 	</campo>
