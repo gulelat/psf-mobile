@@ -1,7 +1,7 @@
 package br.unifesp.psf.cassandra.dao;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.List;
+//import java.util.List;
 
 public class CassandraDaoSuportTest {
 	public static void main(String[] args) throws IllegalArgumentException, IllegalAccessException, SecurityException, NoSuchMethodException, InstantiationException, InvocationTargetException {
@@ -24,7 +24,8 @@ public class CassandraDaoSuportTest {
 					
 					User user=(User) dao.get(User.class, usuarioSalvo.getKey());
 					
-					List<Object> users=dao.cQuery(User.class, "first", "Gustavo123");
+					//List<Object> users=dao.cQuery(User.class, "first", "Gustavo123");
+					dao.cQuery(User.class, "first", "Gustavo123");
 					
 					dao.delete(user);
 				}catch(Exception e){
