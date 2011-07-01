@@ -62,14 +62,13 @@ public class MainActivity extends Activity {
 	}
 	
 	private void newForm() throws FileNotFoundException, ParserConfigurationException, SAXException, IOException{
-		//TODO:Trocar por URI, quando servidor estiver funcionando;
 		Intent newForm = new Intent(this,NewFormActivity.class);
     	startActivity(newForm);
     	finish();
 	}
 	
 	private void viewData() throws FileNotFoundException, ParserConfigurationException, SAXException, IOException{
-		Intent viewData = new Intent(this,NewFormActivity.class);  // Trocar para classe ViewData ao ser criada
+		Intent viewData = new Intent(this,ViewDataActivity.class);  // Trocar para classe ViewData ao ser criada
     	startActivity(viewData);
     	finish();
 	}

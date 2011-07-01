@@ -21,33 +21,50 @@ public final class R {
     }
     public static final class id {
         public static final int backButton=0x7f050003;
-        public static final int checkedTextView1=0x7f05000c;
-        public static final int createFormButton=0x7f05000e;
+        public static final int btn_newForm=0x7f05000d;
+        public static final int btn_viewData=0x7f05000e;
+        public static final int buttonsView=0x7f05000a;
+        public static final int checkedTextView1=0x7f050011;
+        public static final int createFormButton=0x7f050013;
+        public static final int discardButton=0x7f05000c;
         public static final int dynamicView=0x7f050001;
-        public static final int editTextURL=0x7f05000d;
+        public static final int editTextURL=0x7f050012;
         public static final int forwardButton=0x7f050005;
         public static final int helpButton=0x7f050004;
-        public static final int layout1=0x7f05000b;
+        public static final int layout1=0x7f050010;
+        public static final int linearLayout1=0x7f050017;
         public static final int linearLayout2=0x7f050002;
         public static final int linerLayout1=0x7f050000;
-        public static final int linerLayout3=0x7f050006;
-        public static final int listView1=0x7f05000f;
-        public static final int mainLayout=0x7f05000a;
-        public static final int saveButton=0x7f050009;
-        public static final int saveView=0x7f050007;
-        public static final int textView1=0x7f050008;
+        public static final int linerLayout3=0x7f050007;
+        public static final int linerLayout331233=0x7f050006;
+        public static final int listSalvos=0x7f050016;
+        public static final int listView1=0x7f050014;
+        public static final int mainLayout=0x7f05000f;
+        public static final int saveButton=0x7f05000b;
+        public static final int saveView=0x7f050008;
+        public static final int sendButton=0x7f050018;
+        public static final int textView1=0x7f050009;
+        public static final int viewDataLayout=0x7f050015;
     }
     public static final class layout {
         public static final int form=0x7f030000;
-        public static final int last_page=0x7f030001;
-        public static final int main=0x7f030002;
+        public static final int item_list=0x7f030001;
+        public static final int last_page=0x7f030002;
+        public static final int main=0x7f030003;
+        public static final int new_form=0x7f030004;
+        public static final int view_data=0x7f030005;
     }
     public static final class string {
+        public static final int back_button=0x7f040008;
         public static final int create_form=0x7f040001;
+        public static final int discard_button=0x7f040009;
         public static final int end_label=0x7f040004;
         public static final int insert_url=0x7f040000;
         public static final int save_button=0x7f040005;
+        public static final int send_button=0x7f040007;
+        public static final int sql_CreateTable=0x7f040006;
         public static final int title_form=0x7f040002;
         public static final int title_main=0x7f040003;
+        public static final int view_data=0x7f04000a;
     }
 }

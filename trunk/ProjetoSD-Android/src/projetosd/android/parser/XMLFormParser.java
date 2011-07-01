@@ -29,6 +29,7 @@ public class XMLFormParser {
 	public static final String XML_MULTIPLE_OPTION = "opcao_multipla";
 	public static final String XML_SINGLE_OPTION = "opcao_unica";
 	public static final String XML_FORM = "campo";
+	public static final String XML_NAME = "nome";
 	private Document doc;
 	
 	public XMLFormParser(InputStream input) throws ParserConfigurationException, SAXException, IOException {
@@ -88,7 +89,16 @@ public class XMLFormParser {
 		}
 		return ((Node)labelList.item(0)).getNodeValue();
 	}
-	
+	public String getUniqueNodeValue(String name) {
+		NodeList labelList = doc.getElementsByTagName(name);
+		if(labelList.getLength()==0)
+			return null;
+		labelList = ((Node)labelList.item(0)).getChildNodes();
+		if(((Node)labelList.item(0))==null){
+			return null;
+		}
+		return ((Node)labelList.item(0)).getNodeValue();
+	}
 
     public List<Option> getAnswerOptions(int j) {
 		NodeList formList = doc.getElementsByTagName(XML_FORM);

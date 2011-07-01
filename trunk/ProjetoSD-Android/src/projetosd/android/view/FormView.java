@@ -23,28 +23,27 @@ public class FormView extends LinearLayout {
 		super.addView(view);
 	}
 	
-	public String getAnswer(int idPergunta) {
-		String answer = "";
+	public List<String> getAnswers(int idPergunta) {
+		 List<String> answer = new ArrayList<String>();
 		if(getAnswerComponent()==null||getAnswerComponent().isEmpty())
-			return "";
+			return answer;
 		if(getAnswerComponent().get(0) instanceof CheckBox){
+			int cont=0;
 			for (Iterator iterator = getAnswerComponent().iterator(); iterator.hasNext();) {
 				CheckBox checkBox = (CheckBox) iterator.next();
 				if(checkBox.isChecked()){
-					//TODO:Padronizar com outro grupo o formato da resposta de perguntas com checkbox
-					answer += idPergunta + ":" +checkBox.getTag().toString() + ";" ;
+					answer.add(checkBox.getTag().toString());
+					cont++;
 				}
 			}
 			return answer;
 		}else if(getAnswerComponent().get(0) instanceof EditText){
-			answer = idPergunta + ":" + ((EditText)getAnswerComponent().get(0)).getText().toString() +";" ;
+			answer.add(((EditText)getAnswerComponent().get(0)).getText().toString());
 		}else{
 			RadioGroup radioG = ((RadioGroup)getAnswerComponent().get(0));
 			RadioButton rButton = (RadioButton)findViewById(radioG.getCheckedRadioButtonId());
 			if(rButton!=null)
-				answer = idPergunta + ":" + rButton.getTag().toString() + ";";
-			else
-				answer = idPergunta + ":" + " ;";
+				answer.add(rButton.getTag().toString());
 		}
 		
 		return answer;

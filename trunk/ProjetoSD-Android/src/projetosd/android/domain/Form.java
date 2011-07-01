@@ -17,6 +17,9 @@ public class Form {
 	private String defaultValue;
 	private TextType textType;
 	private Integer length;
+	private String repostasXML;
+	private String creationDate;
+	private String formName;
 	public String getQuestion() {
 		return question;
 	}
@@ -64,6 +67,31 @@ public class Form {
 	}
 	public Integer getLength() {
 		return length;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getId() {
+		return id;
+	}
+	
+	public void setRepostasXML(String repostasXML) {
+		this.repostasXML = repostasXML;
+	}
+	public String getRepostasXML() {
+		return repostasXML;
+	}
+	public void setCreationDate(String creationDate) {
+		this.creationDate = creationDate;
+	}
+	public String getCreationDate() {
+		return creationDate;
+	}
+	public void setFormName(String formName) {
+		this.formName = formName;
+	}
+	public String getFormName() {
+		return formName;
 	}
 	
 	
