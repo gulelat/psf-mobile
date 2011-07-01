@@ -45,13 +45,14 @@ public class ListAnswers extends HttpServlet {
 		//dao.addHost("localhost", 9160);
 		
 		try{
-			List<Resposta> list = null;
-			List<Object> lista = dao.cQuery(Resposta.class, "key", "");
+			Resposta resposta;
+			List<Object> list = dao.cQuery(Resposta.class, "key", "");
 			
 			ServletOutputStream outputStream = response.getOutputStream();
 			for(int i = 0; i < list.size(); i++)
 			{
-				outputStream.print("ID: " + list.get(i).getKey() + "\n");
+				resposta = (Resposta)list.get(i);
+				outputStream.print("ID: " + resposta.getKey() + "\n");
 			}
 
 		}catch(Exception e){
