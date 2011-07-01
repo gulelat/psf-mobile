@@ -11,11 +11,10 @@ public class Teste {
 			
 	
 				Base base = new Base();
-				base.setID(1);
 				base.setXml("<oi>op 01</oi><tchau>op dois</tchau>");
 			
 				User usuarioSalvo = (User) dao.save(base);
-				try{
+				/*try{
 					
 					usuarioSalvo.setFirst(usuarioSalvo.getFirst()+"111");
 					dao.save(usuarioSalvo);
@@ -28,7 +27,7 @@ public class Teste {
 					dao.delete(user);
 				}catch(Exception e){
 					e.printStackTrace();
-				}
+				}*/
 			//}
 			
 			System.exit(0);
