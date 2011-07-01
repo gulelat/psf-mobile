@@ -2,18 +2,18 @@ package br.unifesp.psf.cassandra.dao;
 
 public class Base
 {
-    private Integer ID;
+    private Long key;
     private String xml;
     private String url;
 
-    public Integer getID()
+    public Long getKey()
     {
-        return ID;
+        return key;
     }
 
-    public void setID(Integer ID)
+    public void setKey(Long key)
     {
-        this.ID = ID;
+        this.key = key;
     }
 
     public String getXml()
