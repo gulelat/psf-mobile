@@ -53,7 +53,7 @@ public class TestServlet extends HttpServlet {
 			ServletOutputStream outputStream = response.getOutputStream();
 			outputStream.print("http://"+request.getLocalName()+":"+request.getLocalPort()+request.getContextPath()+"/BuscaRespostaServlet?id="+userSalvo.getKey());
 		}catch(Exception e){
-			
+			e.printStackTrace();
 		}
 	}
 	

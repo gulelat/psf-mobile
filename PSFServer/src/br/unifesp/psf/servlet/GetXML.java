@@ -54,7 +54,6 @@ public class GetXML extends HttpServlet {
 			*/
 			
 			
-			
 		}catch(Exception e){
 			e.printStackTrace();
 		}
