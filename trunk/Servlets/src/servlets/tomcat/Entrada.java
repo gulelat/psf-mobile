@@ -22,7 +22,7 @@ public class Entrada extends HttpServlet
 	{
 		String nome = arg0.getParameter("xml");
 		
-		//Pega o xml e grava no banco
+		//Pega o xml e grava no cassandra
 		//Ver se precisa retornar ID
 		
 		//super.service(arg0, arg1);

@@ -20,7 +20,7 @@ public class Saida extends HttpServlet
 	{
 		String nome = arg0.getParameter("data");
 		
-		//Pega o xml do banco pelo ID e devolve pros caras
+		//Pega o xml do cassandra pelo ID e devolve pros caras
 		//Precisa ver se tem que montar pagina
 		
 		//super.service(arg0, arg1);
