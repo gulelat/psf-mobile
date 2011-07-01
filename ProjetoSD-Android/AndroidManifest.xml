@@ -24,6 +24,11 @@
         	android:label="@string/title_form">
         </activity>
         
+          <activity
+        	android:name="projetosd.android.view.ViewDataActivity"
+        	android:label="@string/view_data">
+        </activity>
+        
         <activity
         	android:name="projetosd.android.view.LastPageActivity"
         	android:label="Fim da Pesquisa">

@@ -13,6 +13,9 @@ public class DatabaseManager extends SQLiteOpenHelper {
 	private static final String TABLE_DADOS = "tbl_Dados";
 	private static final String TABLE_DADOS_ID = "id";
 	private static final String TABLE_DADOS_RESULTADO = "resultado";
+	public static final String TABLE_DADOS_FICHA_ID = "fichaId";
+	public static final String TABLE_DADOS_CREATED_DATE = "date_created";
+	public static final String TABLE_DADOS_NAME = "name";
 	private final Context mContext;
 
 	public DatabaseManager(Context context) {
@@ -26,6 +29,9 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
 	public static String getTableDadosResultado() {
 		return TABLE_DADOS_RESULTADO;
+	}
+	public static String getTableDadosFichaId() {
+		return TABLE_DADOS_FICHA_ID;
 	}
 
 	@Override

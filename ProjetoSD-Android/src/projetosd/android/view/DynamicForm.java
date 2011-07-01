@@ -23,12 +23,16 @@ public class DynamicForm extends Activity {
 	private static HashMap<Integer, Form> formMap = new HashMap<Integer, Form>();
 	public static HashMap<Integer, FormView> formViewMap = new HashMap<Integer, FormView>();
 	public static XMLFormParser parser;
+	public static Integer fichaIdToSave;
+	public static String fichaNome;
 	private FormView thisFormView;
 	private LinearLayout layout ;
 	private int pageIndex =0;
     @Override
     public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
+	    formMap = new HashMap<Integer, Form>();
+	    formViewMap = new HashMap<Integer, FormView>();
 	    setContentView(R.layout.form);
 	    layout = (LinearLayout)findViewById(R.id.dynamicView);
 	    reset();
@@ -114,7 +118,6 @@ public class DynamicForm extends Activity {
     	}
     }
     private void backToMain(){
-    	//TODO: Achar outra forma voltar para tela principal pois tá feio pra kcete.
     	 Intent mainIntent = new Intent(this,MainActivity.class);
 	    	startActivity(mainIntent);
 	    	layout.removeView(thisFormView);
@@ -145,7 +148,7 @@ public class DynamicForm extends Activity {
 		    }});
 		    alertDialog.show();
     	}else{
-    		if(formMap.get(pageIndex).getRequired() && "".equals(this.thisFormView.getAnswer(pageIndex))){
+    		if(formMap.get(pageIndex).getRequired() && (this.thisFormView.getAnswers(pageIndex)).isEmpty()){
     			AlertDialog alertRequired = new AlertDialog.Builder(this).create();
     			alertRequired.setTitle("Resposta obrigatória");
     			alertRequired.setMessage("Responda a questão para avançar.");
@@ -182,7 +185,7 @@ public class DynamicForm extends Activity {
     	if(formMap.containsKey(index)){
     		return formMap.get(index);
     	}
-    	
+    	fichaNome =parser.getUniqueNodeValue(XMLFormParser.XML_NAME);
     	Form form = new Form();  
 	    form.setQuestion(parser.getUniqueNodeValue(index, "rotulo"));
 	    form.setHelp(parser.getUniqueNodeValue(index, "ajuda"));
