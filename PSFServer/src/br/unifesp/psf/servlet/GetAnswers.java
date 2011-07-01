@@ -15,13 +15,13 @@ import br.unifesp.psf.cassandra.model.*;
 /**
  * Servlet implementation class TestServlet
  */
-public class GetXML extends HttpServlet {
+public class GetAnswers extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetXML() {
+    public GetAnswers() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -47,10 +47,10 @@ public class GetXML extends HttpServlet {
 		try{
 			String valor = request.getParameter("id");
 			
-			Questionario questionario = (Questionario)dao.cQuery(Questionario.class, "key", valor).get(0);
+			Resposta resposta = (Resposta)dao.cQuery(Resposta.class, "key", valor).get(0);
 			
 			ServletOutputStream outputStream = response.getOutputStream();
-			outputStream.print(questionario.getXml());
+			outputStream.print(resposta.getXml());
 			
 			//outputStream.print("http://"+request.getLocalName()+":"+request.getLocalPort()+request.getContextPath()+"/BuscaRespostaServlet?id="+questionarioSalvo.getKey());
 
