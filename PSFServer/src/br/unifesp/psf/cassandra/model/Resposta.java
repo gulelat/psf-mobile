@@ -3,7 +3,6 @@ package br.unifesp.psf.cassandra.model;
 public class Resposta {
 
 	private Long key;
-	
 
 	private Long idQuestionario;
 	
