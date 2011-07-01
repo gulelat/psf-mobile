@@ -45,13 +45,14 @@ public class ListXML extends HttpServlet {
 		//dao.addHost("localhost", 9160);
 		
 		try{
-			List<Questionario> list = null;
-			List<Object> lista = dao.cQuery(Questionario.class, "key", "");
+			Questionario questionario;
+			List<Object> list = dao.cQuery(Questionario.class, "key", "");
 			
 			ServletOutputStream outputStream = response.getOutputStream();
 			for(int i = 0; i < list.size(); i++)
 			{
-				outputStream.print("ID: " + list.get(i).getKey() + "\n");
+				questionario = (Questionario)list.get(i);
+				outputStream.print("ID: " + questionario.getKey() + "\n");
 			}
 
 		}catch(Exception e){
