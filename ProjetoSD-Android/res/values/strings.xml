@@ -7,7 +7,7 @@
     <string name="end_label">Fim da pesquisa!</string>
     <string name="save_button">Salvar</string>
     <string name="sql_CreateTable">
-    	&quot;CREATE TABLE tbl_Dados (id INTEGER PRIMARY KEY AUTOINCREMENT, resultado TEXT,fichaId INTEGER,date_created TEXT,name TEXT);&quot;
+    	&quot;CREATE TABLE tbl_Dados (id INTEGER PRIMARY KEY AUTOINCREMENT, resultado TEXT,fichaId TEXT,date_created TEXT,name TEXT);&quot;
     </string>
     <string name="send_button">Upload dos dados</string>
     <string name="back_button">Voltar</string>

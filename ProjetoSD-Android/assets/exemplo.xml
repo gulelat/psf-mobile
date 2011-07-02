@@ -3,12 +3,12 @@
    
    <campo tipo="opcao_unica" nome="pratica_esporte" obrigatorio="sim" ordem="0">
 	   	<rotulo>Você pratica algum esporte?</rotulo>
-	   	<ajuda>Texto que ajude o executor da pesquisa</ajuda>
+	   	<ajuda>Válido qualquer tipo de esporte</ajuda>
 		<itens>
 			<item valor="Sim" ordem="0">Sim</item>
 			<item valor="Não" ordem="1">Não</item>
 		</itens>
-		<valor_padrao>S</valor_padrao>
+		<valor_padrao>Sim</valor_padrao>
 	</campo>
 	
 	<campo tipo="opcao_multipla" nome="equipamentos_eletronicos" obrigatorio="nao" ordem="1">
@@ -21,7 +21,7 @@
 			<item valor="Aparelho de DVD" ordem="3">Aparelho de DVD</item>
 			<item valor="Outros" ordem="4">Outros...</item>
 		</itens>
-		<valor_padrao>O</valor_padrao>
+		<valor_padrao>Outros</valor_padrao>
 	</campo>
 	
 	<campo tipo="texto" nome="nome_cachorro" obrigatorio="nao" ordem="2">

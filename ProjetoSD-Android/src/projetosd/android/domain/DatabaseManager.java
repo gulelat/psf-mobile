@@ -33,6 +33,8 @@ public class DatabaseManager extends SQLiteOpenHelper {
 	public static String getTableDadosFichaId() {
 		return TABLE_DADOS_FICHA_ID;
 	}
+	
+
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
