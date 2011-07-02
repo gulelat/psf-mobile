@@ -1,9 +1,11 @@
 package projetosd.android.view;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -13,7 +15,6 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.util.EntityUtils;
 import org.xml.sax.SAXException;
 
 import projetosd.android.R;
@@ -59,28 +60,32 @@ public class NewFormActivity extends Activity {
 		EditText urlInput = (EditText) findViewById(R.id.editTextURL);
 		//TODO Pegar fichaID da URL
 		//TODO: Pegar XML com get da url passada.
-		int fichaID = 0;
+		String fichaID = "";
 		try{
 			String id = getID(urlInput.getText().toString());
 			if(id!=""){
-					fichaID=Integer.valueOf(id);
+					fichaID=id;
 			}
 			}
 		catch(Exception e){
 			return;
 		}
 		DynamicForm.fichaIdToSave = fichaID;
-		InputStream xml = getAssets().open(urlInput.getText().toString());
-
-		//xml = new ByteArrayInputStream(getXML(urlInput.getText().toString()).getBytes("UTF-8"));
+		InputStream xml=null;
+		if(fichaID!="")
+			xml = new ByteArrayInputStream(getXML(urlInput.getText().toString()).getBytes("UTF-8"));
+		
+		if(xml==null||xml.equals(""))
+			xml = getAssets().open(urlInput.getText().toString());
+	
 		DynamicForm.parser = new XMLFormParser(xml);///trocar por uri
     	startActivity(createForm);
     	finish();
 	}
 	
 	private String getID(String url){
-		if(url.contains("ID=")){
-			return url.substring(url.indexOf("ID=\""),url.length());
+		if(url.contains("id=")){
+			return url.substring(url.indexOf("=")+1,url.length());
 		}
 		return "";
 	}
@@ -88,19 +93,19 @@ public class NewFormActivity extends Activity {
 	private String getXML(String url) throws ClientProtocolException, IOException{
 		 HttpClient client = new DefaultHttpClient();  
          HttpGet get = new HttpGet(url);
+		
          HttpResponse responseGet = client.execute(get);
          HttpEntity resEntityGet = responseGet.getEntity();  
-         String sourceString="";
-         if (resEntityGet != null) {                 
-             try {
-                 sourceString= new String(EntityUtils.toString(resEntityGet));
-                 Log.i("Resposta do GET",EntityUtils.toString(resEntityGet));
-             } catch (ParseException exc) {
-                 exc.printStackTrace();
-             } catch (IllegalStateException exc) {
-                 exc.printStackTrace();
-             }
+         BufferedReader in = new BufferedReader(new InputStreamReader(resEntityGet.getContent()));
+         StringBuffer sb = new StringBuffer("");
+         String line = "";
+         String NL = System.getProperty("line.separator");
+         while ((line = in.readLine()) != null) {
+             sb.append(line + NL);
          }
-         return sourceString;
+         in.close();
+         String xml = sb.toString();
+
+         return xml;
 	}
 }

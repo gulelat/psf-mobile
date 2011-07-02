@@ -87,7 +87,7 @@ public class LastPageActivity extends Activity {
 		finish();
 	}
 
-	private void gravarResultado(String respostas,Integer fichaId,String nomeFicha) {
+	private void gravarResultado(String respostas,String fichaId,String nomeFicha) {
 		DatabaseManager dbm = new DatabaseManager(this);
 		SQLiteDatabase db = dbm.getWritableDatabase();
 

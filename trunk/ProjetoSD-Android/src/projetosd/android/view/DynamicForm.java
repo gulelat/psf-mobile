@@ -23,7 +23,7 @@ public class DynamicForm extends Activity {
 	private static HashMap<Integer, Form> formMap = new HashMap<Integer, Form>();
 	public static HashMap<Integer, FormView> formViewMap = new HashMap<Integer, FormView>();
 	public static XMLFormParser parser;
-	public static Integer fichaIdToSave;
+	public static String fichaIdToSave;
 	public static String fichaNome;
 	private FormView thisFormView;
 	private LinearLayout layout ;
