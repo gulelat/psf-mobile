@@ -19,25 +19,4 @@
     <servlet-name>TestServlet</servlet-name>
     <url-pattern>/TestServlet</url-pattern>
   </servlet-mapping>
-  
-    <servlet>
-    <description></description>
-    <display-name>GetXML</display-name>
-    <servlet-name>GetXML</servlet-name>
-    <servlet-class>br.unifesp.psf.servlet.GetXML</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>GetXML</servlet-name>
-    <url-pattern>/GetXML</url-pattern>
-  </servlet-mapping>
-   <servlet>
-    <description></description>
-    <display-name>SaveAnswers</display-name>
-    <servlet-name>SaveAnswers</servlet-name>
-    <servlet-class>br.unifesp.psf.servlet.SaveAnswers</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SaveAnswers</servlet-name>
-    <url-pattern>/SaveAnswers</url-pattern>
-  </servlet-mapping>
 </web-app>

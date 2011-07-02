@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.unifesp.psf.cassandra.dao.CassandraDaoSuport;
 import br.unifesp.psf.cassandra.model.Questionario;
-import br.unifesp.psf.cassandra.model.User;
 
 /**
  * Servlet implementation class TestServlet
@@ -45,13 +44,13 @@ public class TestServlet extends HttpServlet {
 		//dao.addHost("localhost", 9160);
 		
 		try{
-			User user = new User();
+			Questionario user = new Questionario();
 			user.setXml(request.getParameter("xml"));
 		
-			User userSalvo = (User) dao.save(user);
+			Questionario userSalvo = (Questionario) dao.save(user);
 			
 			ServletOutputStream outputStream = response.getOutputStream();
-			outputStream.print("http://"+request.getLocalName()+":"+request.getLocalPort()+request.getContextPath()+"/BuscaRespostaServlet?id="+userSalvo.getKey());
+			outputStream.print("http://"+request.getLocalName()+":"+request.getLocalPort()+request.getContextPath()+"/GetXML?id="+userSalvo.getKey());
 		}catch(Exception e){
 			e.printStackTrace();
 		}
