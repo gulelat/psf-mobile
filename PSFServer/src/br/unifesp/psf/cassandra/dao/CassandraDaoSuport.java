@@ -38,8 +38,8 @@ public class CassandraDaoSuport {
 			IllegalAccessException, SecurityException, NoSuchMethodException,
 			InvocationTargetException {
 
-		Mutator<String> mutator = HFactory.createMutator(ko,
-				StringSerializer.get());
+		Mutator<String> mutator = HFactory.createMutator(ko, StringSerializer
+				.get());
 
 		Object key = getMethod(objeto, "getKey").invoke(objeto);
 
@@ -55,14 +55,13 @@ public class CassandraDaoSuport {
 
 		for (Field f : objeto.getClass().getDeclaredFields()) {
 			if (!f.getName().equals("key")) {
-				Object result = getMethod(objeto, "get" + toUpperFirst(f.getName()))
-						.invoke(objeto);
-				
-				if(result!=null){
+				Object result = getMethod(objeto,
+						"get" + toUpperFirst(f.getName())).invoke(objeto);
+
+				if (result != null) {
 					HColumn<String, String> column = HFactory.createColumn(f
-							.getName(),
-							result.toString(), StringSerializer
-									.get(), StringSerializer.get());
+							.getName(), result.toString(), StringSerializer
+							.get(), StringSerializer.get());
 					mutator.addInsertion(String.valueOf(id), objeto.getClass()
 							.getSimpleName(), column);
 				}
@@ -97,7 +96,7 @@ public class CassandraDaoSuport {
 			String value = null;
 
 			if (!f.getName().equals("key")) {
-				if(queryResult!=null && queryResult.get()!=null){
+				if (queryResult != null && queryResult.get() != null) {
 					value = queryResult.get().getValue();
 				}
 			} else {
@@ -115,8 +114,8 @@ public class CassandraDaoSuport {
 	public void delete(Object objeto) throws IllegalArgumentException,
 			SecurityException, IllegalAccessException,
 			InvocationTargetException, NoSuchMethodException {
-		Mutator<String> mutator = HFactory.createMutator(ko,
-				StringSerializer.get());
+		Mutator<String> mutator = HFactory.createMutator(ko, StringSerializer
+				.get());
 
 		mutator.addDeletion(getMethod(objeto, "getKey").invoke(objeto)
 				.toString(), objeto.getClass().getSimpleName());
@@ -127,9 +126,9 @@ public class CassandraDaoSuport {
 	public List<Object> cQuery(Class classe, String campo, String valor)
 			throws IllegalArgumentException, SecurityException,
 			InstantiationException, IllegalAccessException,
-			InvocationTargetException, NoSuchMethodException, NoSuchFieldException {
+			InvocationTargetException, NoSuchMethodException,
+			NoSuchFieldException {
 
-		
 		List<Object> resultado = new ArrayList<Object>();
 
 		IndexedSlicesQuery<String, String, String> indexedSlicesQuery = HFactory
@@ -138,17 +137,53 @@ public class CassandraDaoSuport {
 		indexedSlicesQuery.addEqualsExpression(campo, valor);
 		indexedSlicesQuery.setColumnNames(getNameFields(classe));
 		indexedSlicesQuery.setColumnFamily(classe.getSimpleName());
-		
+
 		QueryResult<OrderedRows<String, String, String>> result = indexedSlicesQuery
 				.execute();
 
 		for (Row<String, String, String> linha : result.get().getList()) {
-			Object obj=classe.newInstance();
-			getMethod(obj, "setKey", Long.class).invoke(obj, Long.valueOf(linha.getKey()));
-			for(HColumn<String, String> coluna: linha.getColumnSlice().getColumns()){
-				setValue(obj, classe.getDeclaredField(coluna.getName()), coluna.getValue());
+			Object obj = classe.newInstance();
+			getMethod(obj, "setKey", Long.class).invoke(obj,
+					Long.valueOf(linha.getKey()));
+			for (HColumn<String, String> coluna : linha.getColumnSlice()
+					.getColumns()) {
+				setValue(obj, classe.getDeclaredField(coluna.getName()), coluna
+						.getValue());
 			}
-			
+
+			resultado.add(obj);
+		}
+
+		return resultado;
+	}
+
+	public List<Object> listAll(Class classe)
+			throws IllegalArgumentException, SecurityException,
+			InstantiationException, IllegalAccessException,
+			InvocationTargetException, NoSuchMethodException,
+			NoSuchFieldException {
+
+		List<Object> resultado = new ArrayList<Object>();
+
+		IndexedSlicesQuery<String, String, String> indexedSlicesQuery = HFactory
+				.createIndexedSlicesQuery(ko, StringSerializer.get(),
+						StringSerializer.get(), StringSerializer.get());
+		indexedSlicesQuery.setColumnNames(getNameFields(classe));
+		indexedSlicesQuery.setColumnFamily(classe.getSimpleName());
+
+		QueryResult<OrderedRows<String, String, String>> result = indexedSlicesQuery
+				.execute();
+
+		for (Row<String, String, String> linha : result.get().getList()) {
+			Object obj = classe.newInstance();
+			getMethod(obj, "setKey", Long.class).invoke(obj,
+					Long.valueOf(linha.getKey()));
+			for (HColumn<String, String> coluna : linha.getColumnSlice()
+					.getColumns()) {
+				setValue(obj, classe.getDeclaredField(coluna.getName()), coluna
+						.getValue());
+			}
+
 			resultado.add(obj);
 		}
 
@@ -202,9 +237,8 @@ public class CassandraDaoSuport {
 
 	private String toUpperFirst(String valor) {
 		StringBuilder resultado = new StringBuilder(valor);
-		resultado.setCharAt(0,
-				new String(Character.toString(resultado.charAt(0)))
-						.toUpperCase().charAt(0));
+		resultado.setCharAt(0, new String(Character.toString(resultado
+				.charAt(0))).toUpperCase().charAt(0));
 
 		return resultado.toString();
 	}
@@ -213,9 +247,8 @@ public class CassandraDaoSuport {
 		return System.currentTimeMillis();
 	}
 
-	
-	public void addHost(String host, int port){
-		CassandraHost cassandraHost=new CassandraHost(host, port);
+	public void addHost(String host, int port) {
+		CassandraHost cassandraHost = new CassandraHost(host, port);
 		c.addHost(cassandraHost, true);
 	}
 }
