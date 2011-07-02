@@ -34,8 +34,6 @@ public class DatabaseManager extends SQLiteOpenHelper {
 		return TABLE_DADOS_FICHA_ID;
 	}
 	
-
-
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		String sql = mContext.getString(R.string.sql_CreateTable);

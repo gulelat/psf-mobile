@@ -136,7 +136,7 @@ public class ViewDataActivity extends Activity{
         in.close();
         String resposta = sb.toString();
         if(resposta!=null||resposta!=""){
-        	new DatabaseManager(this).getWritableDatabase().execSQL("delete from "+DatabaseManager.getTableDados() + " where fichaID="+fichaID.toString());
+        	new DatabaseManager(this).getWritableDatabase().execSQL("delete from "+DatabaseManager.getTableDados());
         }
         backToMain();
 	}

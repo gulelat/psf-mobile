@@ -72,9 +72,11 @@ public class NewFormActivity extends Activity {
 		}
 		DynamicForm.fichaIdToSave = fichaID;
 		InputStream xml=null;
-		if(fichaID!="")
+		if(fichaID!=""){
+			if(getXML(urlInput.getText().toString())=="null\n")
+				return;
 			xml = new ByteArrayInputStream(getXML(urlInput.getText().toString()).getBytes("UTF-8"));
-		
+		}
 		if(xml==null||xml.equals(""))
 			xml = getAssets().open(urlInput.getText().toString());
 	
