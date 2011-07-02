@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.unifesp.psf.cassandra.dao.CassandraDaoSuport;
 import br.unifesp.psf.cassandra.model.*;
+import br.unifesp.psf.utils.PSFUtils;
 
 /**
  * Servlet implementation class TestServlet
@@ -41,12 +42,10 @@ public class ListXML extends HttpServlet {
 	}
 
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CassandraDaoSuport dao=new CassandraDaoSuport("Test Cluster", "172.20.9.144", "9160", "unifespApresentacao");
-		//dao.addHost("localhost", 9160);
 		
 		try{
 			Questionario questionario;
-			List<Object> list = dao.cQuery(Questionario.class, "key", "");
+			List<Object> list = PSFUtils.getCassandraDaoSuport().cQuery(Questionario.class, "key", "");
 			
 			ServletOutputStream outputStream = response.getOutputStream();
 			for(int i = 0; i < list.size(); i++)
