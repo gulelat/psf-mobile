@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.unifesp.psf.cassandra.dao.CassandraDaoSuport;
 import br.unifesp.psf.cassandra.model.*;
+import br.unifesp.psf.utils.PSFUtils;
 
 /**
  * Servlet implementation class TestServlet
@@ -41,18 +42,14 @@ public class GetAnswer extends HttpServlet {
 	}
 
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CassandraDaoSuport dao=new CassandraDaoSuport("Test Cluster", "172.20.9.144", "9160", "unifespApresentacao");
-		//dao.addHost("localhost", 9160);
 		
 		try{
 			String valor = request.getParameter("id");
 			
-			Resposta resposta = (Resposta)dao.cQuery(Resposta.class, "key", valor).get(0);
+			Resposta resposta = (Resposta)PSFUtils.getCassandraDaoSuport().get(Resposta.class, Long.parseLong(valor));
 			
 			ServletOutputStream outputStream = response.getOutputStream();
 			outputStream.print(resposta.getXml());
-			
-			//outputStream.print("http://"+request.getLocalName()+":"+request.getLocalPort()+request.getContextPath()+"/BuscaRespostaServlet?id="+questionarioSalvo.getKey());
 
 		}catch(Exception e){
 			e.printStackTrace();
