@@ -17,7 +17,7 @@
 		
 		<EditText
 			android:layout_width="fill_parent"
-			android:text="exemplo.xml"
+			android:text="http://172.20.9.144:8080/PSFServer/GetXML?id=1309607910981"
 			android:id="@+id/editTextURL"
 			android:layout_height="wrap_content">
 		</EditText>
