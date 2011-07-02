@@ -9,16 +9,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>TestServlet</display-name>
-    <servlet-name>TestServlet</servlet-name>
-    <servlet-class>br.unifesp.psf.servlet.TestServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>TestServlet</servlet-name>
-    <url-pattern>/TestServlet</url-pattern>
-  </servlet-mapping>
+
   
     <servlet>
     <description></description>
@@ -40,4 +31,54 @@
     <servlet-name>SaveAnswers</servlet-name>
     <url-pattern>/SaveAnswers</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>GetAnswer</display-name>
+    <servlet-name>GetAnswer</servlet-name>
+    <servlet-class>br.unifesp.psf.servlet.GetAnswer</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetAnswer</servlet-name>
+    <url-pattern>/GetAnswer</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <description></description>
+    <display-name>SaveXML</display-name>
+    <servlet-name>SaveXML</servlet-name>
+    <servlet-class>br.unifesp.psf.servlet.SaveXML</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SaveXML</servlet-name>
+    <url-pattern>/SaveXML</url-pattern>
+  </servlet-mapping>
+
+  
+  
+  
+   <servlet>
+    <description></description>
+    <display-name>ListAnswers</display-name>
+    <servlet-name>ListAnswers</servlet-name>
+    <servlet-class>br.unifesp.psf.servlet.ListAnswers</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListAnswers</servlet-name>
+    <url-pattern>/ListAnswers</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <servlet>
+    <description></description>
+    <display-name>ListXML</display-name>
+    <servlet-name>ListXML</servlet-name>
+    <servlet-class>br.unifesp.psf.servlet.ListXML</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListXML</servlet-name>
+    <url-pattern>/ListXML</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
