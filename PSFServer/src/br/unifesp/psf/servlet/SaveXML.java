@@ -48,7 +48,15 @@ public class SaveXML extends HttpServlet {
 		
 			Questionario questionarioSalvo = (Questionario) PSFUtils.getCassandraDaoSuport().save(questionario);
 			
+			response.addHeader("Access-Control-Allow-Origin", "*");
+
+
+			response.addHeader("Access-Control-Allow-Credentials", "true");
+
+
+			
 			ServletOutputStream outputStream = response.getOutputStream();
+		
 			outputStream.print("http://"+request.getLocalName()+":"+request.getLocalPort()+request.getContextPath()+"/GetXML?id="+questionarioSalvo.getKey());
 		}catch(Exception e){
 			e.printStackTrace();
