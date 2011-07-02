@@ -51,7 +51,7 @@ public class SaveAnswers extends HttpServlet {
 			Resposta respostaSalva = (Resposta) dao.save(resposta);
 			
 			ServletOutputStream outputStream = response.getOutputStream();
-			outputStream.print("http://"+request.getLocalName()+":"+request.getLocalPort()+request.getContextPath()+"/BuscaRespostaServlet?id="+respostaSalva.getKey());
+			System.out.print("http://"+request.getLocalName()+":"+request.getLocalPort()+request.getContextPath()+"/BuscaRespostaServlet?id="+respostaSalva.getKey());
 		}catch(Exception e){
 			e.printStackTrace();
 		}

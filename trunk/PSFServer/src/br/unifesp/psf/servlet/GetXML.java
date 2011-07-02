@@ -47,7 +47,7 @@ public class GetXML extends HttpServlet {
 		try{
 			String valor = request.getParameter("id");
 			
-			Questionario questionario = (Questionario)dao.cQuery(Questionario.class, "key", valor).get(0);
+			Questionario questionario = (Questionario)dao.get(Questionario.class, Long.parseLong(valor));
 			
 			ServletOutputStream outputStream = response.getOutputStream();
 			outputStream.print(questionario.getXml());
