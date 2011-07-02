@@ -45,7 +45,7 @@ public class ListXML extends HttpServlet {
 		
 		try{
 			Questionario questionario;
-			List<Object> list = PSFUtils.getCassandraDaoSuport().cQuery(Questionario.class, "key", "");
+			List<Object> list = PSFUtils.getCassandraDaoSuport().listAll(Questionario.class);
 			
 			ServletOutputStream outputStream = response.getOutputStream();
 			for(int i = 0; i < list.size(); i++)
