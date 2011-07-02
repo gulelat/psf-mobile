@@ -50,7 +50,7 @@ public class SaveAnswers extends HttpServlet {
 			Resposta respostaSalva = (Resposta) PSFUtils.getCassandraDaoSuport().save(resposta);
 			
 			ServletOutputStream outputStream = response.getOutputStream();
-			outputStream.print("http://"+request.getLocalName()+":"+request.getLocalPort()+request.getContextPath()+"/BuscaRespostaServlet?id="+respostaSalva.getKey());
+			outputStream.print("http://"+request.getLocalName()+":"+request.getLocalPort()+request.getContextPath()+"/GetAnswer?id="+respostaSalva.getKey());
 		}catch(Exception e){
 			e.printStackTrace();
 		}
