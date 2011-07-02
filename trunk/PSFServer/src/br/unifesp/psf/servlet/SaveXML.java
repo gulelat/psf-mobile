@@ -49,7 +49,7 @@ public class SaveXML extends HttpServlet {
 			Questionario questionarioSalvo = (Questionario) PSFUtils.getCassandraDaoSuport().save(questionario);
 			
 			ServletOutputStream outputStream = response.getOutputStream();
-			outputStream.print("http://"+request.getLocalName()+":"+request.getLocalPort()+request.getContextPath()+"/BuscaRespostaServlet?id="+questionarioSalvo.getKey());
+			outputStream.print("http://"+request.getLocalName()+":"+request.getLocalPort()+request.getContextPath()+"/GetXML?id="+questionarioSalvo.getKey());
 		}catch(Exception e){
 			e.printStackTrace();
 		}
