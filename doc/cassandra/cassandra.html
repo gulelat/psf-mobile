@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	
+	
+
+	
+	<title> Projeto SD</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+	<meta name="description" content="Documentacao html do projeto do curso de Sistemas Distribuídos"  />
+	<meta name="keywords" content=" SD sistemas distribuidos projeto 2011" />
+	
+	<!-- links to stylesheets and scripts -->
+	<link href="../_layout/style.css" rel="stylesheet" type="text/css" />
+	
+</head>
+<body>
+		
+	<div id="header" class="fixed">
+	<a name="topo"></a> 
+		<div class="logo">
+			<<a href="../index.html">
+				<img src="../_content/logounifesp.jpg" border="0" alt="Unifesp" />
+			</a>
+		</div><!-- end .logo -->
+		
+		<div class="nav">
+			<ul>
+			  <li><a href="../index.html">Home</a></li>
+			  <li><a href="../html5/html5.html">HTML5</a></li>
+			  <li><a href="../android/android.html">Android</a></li>
+			  <li><a href="../tomcat/tomcat.html">Tomcat</a></li>
+			  <li><a href="../cassandra/cassandra.html"  class="active">Cassandra</a></li>
+			  <li><a href="../sobre.html">Sobre</a></li>
+			</ul>
+		</div><!-- end .nav -->
+	 
+	</div><!-- end #header -->
+	
+	<div id="content" class="fixed">
+	  <div id="maincontent" class="fixed">
+	   <a name="inicio"></a>
+		<h2>Cassandra</h2>
+		<img src="../_content/cassandra.jpg" border="0" alt="Cassandra"/>
+		<p>&nbsp;</p>
+		<h3>A componente</h3>
+		<p>Essa componente teve como objetivo disponibilizar um cluster de servidores de persistência <a href="#nosql">NoSQL</a>
+		capazes de replicação de dados e balanço de carga automático. O serviço de persistência é integrado ao sistema através da componente
+		 <a href="../tomcat/tomcat.html" >Tomcat</a>, única componente com acesso direto à interface da Cassandra.</p>
+		 <p>&nbsp;</p>
+		<a name="nosql"></a>
+		<h3>NoSQL</h3>
+		<p>&nbsp;</p>
+		<p>Classe de Banco de dados não relacional, não tem as garantias ACID (Atomicidade, Consistência, Isolamento e Durabilidade) e esquema de tabela fixa, não suporta instruções e operações de junção SQL
+		 e apresentam escalabilidade horizontal.</p>	
+		</p>
+		<p>&nbsp;</p>
+		<a name="cassandra"></a>
+		<h3>Cassandra</h3>
+		<p>&nbsp;</p>
+		<p>Repositório de dados feito em java altamente escalável, eventualmente consistente (update propagado durante um período de não atualizações). 
+		Inicialmente desenvolvido pelo Facebook (por Avinash Laksman e Prashant Malik), foi tornando open source em 2008 para melhorias, atualmente mantido 
+		pela Apache e colaboradores. Reúne a arquitetura Dynamo, da Amazon e um modelo de dados baseado no BigTable, do Gooble.</p>
+		<p>Utiliza clusterização descentralizada (não há nó mestre), elasticidade (leitura e escrita de forma linear) e é tolerante a falhas.</p>
+		<a name="mapeamento"></a>
+		<h4>Mapeamento</h4>
+		<p>&nbsp;</p>
+		<p>Para agilizar e facilitar a criação, o acesso e a inclusão de dados foi disponibilizada uma interface para a persistência 
+		de cada tipo de dado. Um tipo de dado pede uma implementação de classe java que encapsule os dados desejados para persitência.</p>
+		<img src="../_content/Questionario.jpg" border="0" alt="Unifesp" />
+		<p>&nbsp;</p>
+		<a name="Cluster"></a>
+		<h4>Cluster</h4>
+      <p>Como dito em <a href="../tomcat/tomcat.html#Cluster" >Cluster</a>, mas para o Cassandra foram usadas duas máquinas:</p>
+		<ul>
+          <li>Kay2, IP: 172.20.9.143;</li>
+          <li>Kay3, IP: 172.20.9.144;</li>
+		</ul>
+		</p>
+<p>&nbsp;</p>
+      <a name="casos"></a>
+      <h4>Casos de uso</h4>
+		<img src="../_content/CasoDeUsoHTML5.jpeg" alt="caso de uso" class="img-center" alt="Esquema para Caso de Uso" />
+	
+		<p>Imagine um professor que queira fazer um estudo socio-econ&ocirc;mico an&ocirc;nimo de uma classe do ensino médio. Usando seu notebook
+		em casa, ele prepara os question&aacute;rios e os grava .</p>
+		<img src="../_content/CasoDeUsoAndroid.jpeg" alt="caso de uso" class="img-center" alt="Esquema para Caso de Uso" width="800"/>
+	
+		<p>Estudantes respondem a um formulário carregado na componente <a href="../android/android.html">Android</a> em celulares. E nosso querido professor
+		persiste os dados mais tarde.</p>		
+			<p>&nbsp;</p>
+		<a name="codigo"></a>
+		<h3>C&oacute;digo</h3>
+		
+		<h5>CassandraDaoSuport.java</h5>
+      Encapsula toda a interface para manuseio do banco.<br>	
+	<a href="CassandraDaoSuport.java" >CassandraDaoSuport</a>	<br>
+		
+	<p><a href="#topo">Topo</a></p>
+		  
+	<!-- ************** ^ END MAIN CONTENT HERE  ^ ********************************************************************************** -->  	  
+	  </div><!-- end #maincontent -->
+	   <div id="sidebar">
+	<!-- *************** V SIDEBAR CONTENT HERE  V ********************************************************************************** -->  	
+	<h3>Contexto</h3>
+		
+		<ul class="sidebar_nav">
+		  <li><a href="#inicio">In&iacute;cio</a></li>
+		  <li><a href="#nosql">NoSQL</a></li>
+		  <li><a href="#cassandra">Cassandra</a></li>
+		  <li><a href="#mapeamento">Mapeamento</a></li>
+		  <li><a href="#cluster">Cluster</a></li>
+        <li><a href="#casos">Casos de Uso</a></li>
+		  <li><a href="#codigo">C&oacute;digo</a></li>
+		</ul><!-- end .sub_nav -->
+		
+		<p>&nbsp;</p><!-- paragraph with non breaking white space; makes space between different elements of the sidebar -->
+		
+		<h3>Contato</h3>
+		
+		<ul class="contact_info">
+		  <li>UNIFESP</li>		  
+		  <li>ICT</li>		  
+		  <li>BCC</li>
+		  <li>Sistemas Distribu&iacute;dos</li>
+		  <li>rjunior(at)unifesp(dot)br</li>
+		</ul>
+	
+		<img src="../_content/logo.jpg" alt="logo" class="img-right" / >
+		
+		
+	<!-- *************** ^ SIDEBAR CONTENT ENDS HERE ^ ****************************************************************************** -->  	
+	  </div><!-- end #sidebar -->
+	</div><!-- end #content -->
+	
+	<div id="footer" class="fixed">
+		
+		<!-- in order to use this template legally the following links must remain intact. -->
+		<p class="credits">
+			<strong>Credits:</strong>
+		   <a href="http://www.oricemedia.ro/servicii/design-siteuri-web.html" 
+		   title="web design, realizare site-uri, pagini web">Web design</a> by  
+		   <a href="http://www.oricemedia.ro/" title="agentie web design mures">Orice Media</a>.
+		 </p>
+						   
+	</div></body>
+</html>

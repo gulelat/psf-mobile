@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	
+	
+
+	
+	<title> Projeto SD</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+	<meta name="description" content="Documentacao html do projeto do curso de Sistemas Distribuídos"  />
+	<meta name="keywords" content=" SD sistemas distribuidos projeto 2011" />
+	
+	<!-- links to stylesheets and scripts -->
+	<link href="../_layout/style.css" rel="stylesheet" type="text/css" />
+	
+</head>
+<body>
+		
+	<div id="header" class="fixed">
+<a name="topo"></a>	
+		<div class="logo">
+		
+			<a href="../index.html">
+				<img src="../_content/logounifesp.jpg" border="0" alt="Unifesp" />
+			</a>
+		</div><!-- end .logo -->
+		
+		<div class="nav">
+			<ul>
+			  <li><a href="../index.html">Home</a></li>
+			  <li><a href="../html5/html5.html">HTML5</a></li>
+			  <li><a href="../android/android.html" class="active">Android</a></li>
+			  <li><a href="../tomcat/tomcat.html">Tomcat</a></li>
+			  <li><a href="../cassandra/cassandra.html">Cassandra</a></li>
+			  <li><a href="../sobre.html">Sobre</a></li>
+			</ul>
+		</div><!-- end .nav -->
+	 
+	</div><!-- end #header -->
+	
+	<div id="content" class="fixed">
+	  <div id="maincontent" class="fixed">
+	  
+   <a name="inicio"></a>
+		<h2>Android</h2>
+		<img src="../_content/android.jpg" border="0" alt="Android"/>
+		<p>&nbsp;</p>
+		<h3>A componente</h3>
+		<p>A componente tem como mote a interface com o usuário para as respostas dos formulários editados na componente 
+		<a href="../html5/html5.html" >HTML5</a>, a persistência local dessas respostas e a persistência via <i>webservice</i> 
+		<a href="../tomcat/tomcat.html" >Tomcat</a>. É um aplicativo móvel Android.</p>
+		 <p>&nbsp;</p>
+		<a name="android"></a>
+		<h3>Android</h3>
+		<p>Sistema operacional para celulares adquirido pela Google, baseado no kernel Linux, foi desenvolvido pelos colaboradores (inclusive Google)
+		da The Open Handset Alliance, chamado de Android Open Source Project. Sua arquitetura consiste em camadas bem definidas:
+		<ul>
+      <li>Aplicação: Onde rodam as funcionalidades e aplicações do celular;</li>
+      <li>Framework de Aplicação: Contém aplicações de suporte ao sistema, gerenciadores em geral. (Janelas, Contatos);</li>
+      <li>Bibliotecas: Bibliotecas de apoio ao funcionamento do sistema. (Open GL, SQLite, SSL);</li>
+      <li>Android Runtime: Contém a maquina virtual Dalvik e biblioteca adjacentes;</li>
+      <li>Linux Kernel: O kernel linux.</li>		
+		</ul></p>
+		<h5>Máquina Virtual Dalvik</h5>
+		<p>Escrita por Dan Bornstein, é o núcleo do Android, antes do sistema executar qualquer processo ele
+		 é convertido para linguagem dessa máquina e, depois, executado na mesma, otimizada para pouca memória e suporte a threatding.</p>
+		<p>&nbsp;</p>
+	   <a name="Respostas"></a>
+		<h3>Respostas</h3>
+		<p>O aplicativo necessita ser configurado antes de proceder as respostas:<br>
+		 <ul><li>O usuário digita a URL retornada da persistência feita na componente <a href="../hmtl5/html5.html" >HTML5</a>;</li>
+		 <li>A URL, através da componente <a href="../tomcat/tomcat.hmtl" >Tomcat</a>, retorna um XML, esse é convetido em um interface gráfica, possibilitando as respostas. </li></ul></p>
+		<img src="../_content/esquemaandroid.jpg" alt="Esquema Inicial" >
+<p>&nbsp;</p>		
+		<p>Após as conversões, o aplicativo está pronto para receber as respostas do usuário:<br>
+		 <ul><li>O usuário utiliza a interface gráfica para responder; </li>
+		 <li>E as salva localmente.</li></ul></p>
+		<img src="../_content/esquemaandroid2.jpg" alt="Esquema Inicial" >
+		<p>&nbsp;</p>
+		<p>Assim as respostas estão pronta para persistência via <i>webservice</i> <a href="../tomcat/tomcat.jpg">Tomcat</a>:<br>
+		 </p>
+		<img src="../_content/esquemaandroid2.jpg" alt="Esquema Inicial" >
+      <a name="casos"></a>
+		<h3>Caso de Uso</h3>
+		<p>Imagine um professor que queira fazer um estudo socio-econ&ocirc;mico an&ocirc;nimo de uma classe do ensino médio. Usando seu notebook
+		em casa, ele prepara os question&aacute;rios e os grava .</p>
+		<img src="../_content/CasoDeUsoAndroid.jpeg" alt="caso de uso" class="img-center" alt="Esquema para Caso de Uso" width="800"/>
+		<p>&nbsp;</p>
+	   
+	   <p>&nbsp;</p>	
+	   <a name="codigo"></a>
+      <h3>Código</h3>
+		<h5>DatabaseManager.java</h5>
+      Gerencia e manipula o banco de dados SQLite.<br>
+		<a href="domain/DatabaseManager.java" >DatabaseManager</a><br>
+		<p>&nbsp;</p>
+		<h5>Form.java</h5>
+      Encapsula o formulário para as respostas.<br>
+      <a href="domain/Form.java" >Form</a>		<br>
+      <p>&nbsp;</p>
+		<h5>Option.java</h5>
+      Encapsula o elemento opção do formulário.<br>
+		<a href="domain/Option.java" >Option</a><br>
+      <p>&nbsp;</p>  
+		<h5>TextType.java</h5>
+      Encapsula o elemento texto livre do formulário.<br>
+		<a href="domain/TextType.java" >TextType</a><br>
+		<p>&nbsp;</p>
+		<h5>FormFactory.java</h5>
+      Cria inteface gráfica a partir de um objeto <a href="domain/Form.java" >domain.Form</a>.<br>
+		<a href="factory/FormFactory.java" >FormFactory</a>				<br>
+		<p>&nbsp;</p>
+		<h5>XMLFormParser.java</h5>
+      Faz a extração do XML editado em <a href="../html5/html5">HTML5</a>.<br>
+		<a href="parser/XMLFormParser.java" >XMLFormParser</a><br>
+		<p>&nbsp;</p>
+		<h5>DynamicForm.java</h5>
+      Cria objetos <a href="domain/Form.java" >domain.Form</a> a partir de um objeto <a href="parser/XMLFormParser.java" >XMLFormParser</a><br>.<br>
+		<a href="view/DynamicForm.java" >DynamicForm</a><br>
+		<p>&nbsp;</p>
+		<h5>FormView.java</h5>
+      Cria a interface para resposta de um elemento do formulário.<br>
+		<a href="view/FormView.java" >FormView</a>	   <br>
+		<p>&nbsp;</p>
+		<h5>LastPageActivity.java</h5>
+      Controla última página, gravar ou não as respostas.<br>
+	   <a href="view/LastPageActivity.java" >LastPageActivity</a><br>
+	   <p>&nbsp;</p>
+		<h5>MainActivity.java</h5>
+      Encapsula e mapeia as respostas de formulário.<br>
+      <a href="view/MainActivity.java" >MainActivity</a>		<br>
+      <p>&nbsp;</p>
+		<h5>NewFormActivity.java</h5>
+      Controla criação de novos Form's.<br>
+		<a href="view/NewFormActivity.java" >NewFormActivity</a><br>
+		<p>&nbsp;</p>
+		<h5>ViewDataActivity.java</h5>
+      Controla a visão de dados gravados.<br>
+		<a href="view/ViewDataActivity.java" >ViewDataActivity</a>
+		  
+	<!-- ************** ^ END MAIN CONTENT HERE  ^ ********************************************************************************** -->  	  
+	  </div><!-- end #maincontent -->
+	   <div id="sidebar">
+	<!-- *************** V SIDEBAR CONTENT HERE  V ********************************************************************************** -->  	
+	
+		<h3>Contexto</h3>
+		
+		<ul class="sidebar_nav">
+		  <li><a href="#inicio">In&iacute;cio</a></li>
+		  <li><a href="#android">Android</a></li>
+		  <li><a href="#Respostas">Respostas</a></li>
+		  <li><a href="#casos">Casos de Uso</a></li>
+		  <li><a href="#codigo">C&oacute;digo</a></li>
+		</ul><!-- end .sub_nav -->
+		
+		<p>&nbsp;</p><!-- paragraph with non breaking white space; makes space between different elements of the sidebar -->
+		
+		<h3>Contato</h3>
+		
+		<ul class="contact_info">
+		  <li>UNIFESP</li>		  
+		  <li>ICT</li>		  
+		  <li>BCC</li>
+		  <li>Sistemas Distribu&iacute;dos</li>
+		  <li>rjunior(at)unifesp(dot)br</li>
+		</ul>
+	
+		<img src="../_content/logo.jpg" alt="logo" class="img-right" / >
+		
+	<!-- *************** ^ SIDEBAR CONTENT ENDS HERE ^ ****************************************************************************** -->  	
+	  </div><!-- end #sidebar -->
+	</div><!-- end #content -->
+	
+	<div id="footer" class="fixed">
+		
+		<!-- in order to use this template legally the following links must remain intact. -->
+		<p class="credits">
+			<strong>Credits:</strong>
+		   <a href="http://www.oricemedia.ro/servicii/design-siteuri-web.html" 
+		   title="web design, realizare site-uri, pagini web">Web design</a> by  
+		   <a href="http://www.oricemedia.ro/" title="agentie web design mures">Orice Media</a>.
+		 </p>
+						   
+	</div></body>
+</html>

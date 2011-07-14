@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	
+	
+
+	
+	<title> Projeto SD</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+	<meta name="description" content="Documentacao html do projeto do curso de Sistemas Distribuídos"  />
+	<meta name="keywords" content=" SD sistemas distribuidos projeto 2011" />
+	
+	<!-- links to stylesheets and scripts -->
+	<link href="_layout/style.css" rel="stylesheet" type="text/css" />
+	
+</head>
+<body>
+		
+	<div id="header" class="fixed">
+	<a name="topo"></a>  
+		<div class="logo">
+			<a href="index.html">
+				<img src="_content/logounifesp.jpg" border="0" alt="Unifesp" />
+			</a>
+		</div><!-- end .logo -->
+		
+		<div class="nav">
+			<ul>
+			  <li><a href="index.html" class="active">Home</a></li>
+			  <li><a href="html5/html5.html">HTML5</a></li>
+			  <li><a href="android/android.html">Android</a></li>
+			  <li><a href="tomcat/tomcat.html">Tomcat</a></li>
+			  <li><a href="cassandra/cassandra.html">Cassandra</a></li>
+			  <li><a href="sobre.html">Sobre</a></li>
+			</ul>
+		</div><!-- end .nav -->
+	 
+	</div><!-- end #header -->
+	
+	<div id="content" class="fixed">
+	  <div id="maincontent" class="fixed">
+	  <a name="inicio"></a>
+	
+		<h2>Projeto Final de Sitemas Distribu&iacute;dos 2011</h2>
+			
+		<p>Esse trabalho foi desenvolvido durante o primeiro semestre de 2011.<br>
+		É um sistema distribu&iacute;do de cria&ccedil;&atilde;o, formata&ccedil;&atilde;o e persist&ecirc;ncia de 
+		question&aacute;rios de forma tr&acirc;nsparente aos usu&aacute;rios. Tamb&eacute;m permite também a um usu&aacute;rio responder aos question&aacute;rios e entregar 
+		as respostas a um servidor. Cada componente é independente e só há troca de mensagens por rede.</p>
+		<p>Um Sistema composto de 4 componentes:</p>
+		
+		<p><ul>
+			  <li><a href="html5/html5.html">HTML5</a>; <img src="_content/logohtml5.jpg" alt="HTML5"/></li>
+			  <li><a href="android/android.html">Android</a>;<img src="_content/logoandroid.jpg" alt="Android"/></li>
+			  <li><a href="tomcat/tomcat.html">Tomcat</a>;<img src="_content/logotomcat.jpg" alt="Tomcat"/></li>
+			  <li><a href="cassandra/cassandra.html">Cassandra</a>.<img src="_content/logocassandra.jpg" alt="Cassandra"/></li>
+			</ul></p>
+
+		<p><strong>Cada componente resposável por uma implementa&ccedil;&atilde;o do sistema:</strong></p>
+		
+		<ul>
+			  <li><a href="html5/html5.html">HTML5</a>: Cria&ccedil;&atilde;o e formata&ccedil;&atilde;o din&acirc;mica dos question&aacute;rios.</li>
+			  <li><a href="android/android.html">Android</a>: Atr&aacute;ves de uma interface m&oacute;vel com o usu&aacute;rio, permite as 
+			                                                  respostas aos question&aacute;rios editados na componente anterior.</li>
+			  <li><a href="tomcat/tomcat.html">Tomcat</a>: Implementa os <i>webservices</i> necess&aacute;rios para a interface entre as duas 
+			                                               primeiras componentes e o servi&ccedil;o de persist&ecirc;ncia <a href="cassandra/cassandra.html">Cassandra</a>.</li>
+			  <li><a href="cassandra/cassandra.html">Cassandra</a>: Possui o servi&ccedil;o de persist&ecirc;ncia e recuper&ccedil;&atilde;o dos question&aacute;rios e suas respostas.</li>
+		</ul>
+			<a name="esquema"></a>	
+		<h3>Esquematiza&ccedil;&atilde;o:</h3>
+		  <h4>Esquema</h4>
+		<img src="_content/esquemacomSetas.jpg" alt="" width="320" height="200" class="img-center" alt="Esquema do SD"/>
+		
+	   
+		
+		<p>Na imagem acima, como funciona a troca de mensagens entre as componentes do sistema. <a href="_content/esquemacomSetas.jpg">[+]</a></p>
+		<br>
+		
+		
+		
+		<h4>Caso de uso</h4>
+		<img src="_content/CasoDeUso.jpeg" alt="caso de uso" width="800" class="img-center" alt="Esquema para Caso de Uso" />
+	
+		<p>Imagine um professor que queira fazer um estudo socio-econ&ocirc;mico an&ocirc;nimo de uma classe do ensino médio. Usando seu notebook
+		em casa, ele prepara os question&aacute;rios e os grava . Ele prepara 5 celulares para receberem as respostas, e na sala de aula
+		os alunos utilizam os celulares para responder &agrave;s perguntas, no fim da aula o professor persiste os dados inseridos pelo alunos
+		para posterior acesso .</p>		
+		<a name="integracao"></a>  
+		<h3>Integra&ccedil;&atilde;o:</h3>
+
+		
+		<p>As componentes do sistema se comunicam sempre por rede (<i>internet</i>), usando o protocolo <i>http</i> e as quest&otilde;es
+		 e as respostas são representadas atrav&eacute;s de mensagens XML.<br>
+		 Em a componente HTML5 envia por Post uma <i>string</i> contendo o question&aacute;rio representado por um XML. 
+		 A Tomcat encapsula a XML em um objeto da interface da componente Cassandra e ordena a persist&ecirc;ncia. Cassandra retorna
+		 a <i>id</i> para Tomcat, que a concatena na <i>string</i> da <i>url</i> que ser&aacute; usada para recuperar esses dados. A compoenente 
+		 Android utiliza essa <i>url</i> para adquirir as quest&otilde;es, Tomcat utiliza a <i>id</i> recebida para recupera junto ao Cassandra.
+		 A <i>string</i> contendo o XML &eacute; retornada para a Android. As resposta são verdidas para um XML e enviada (para o Tomcat,
+		  o procedimento seguinte é similiar ao do question&aacute;rio.</p>
+<a href="#topo">Topo</a>
+
+	<!-- ************** ^ END MAIN CONTENT HERE  ^ ********************************************************************************** -->  	  
+	  </div><!-- end #maincontent -->
+	   <div id="sidebar">
+	<!-- *************** V SIDEBAR CONTENT HERE  V ********************************************************************************** -->  	
+	
+		<h3>Contexto</h3>
+		
+		<ul class="sidebar_nav">
+		  <li><a href="#inicio">In&iacute;cio</a></li>
+		  <li><a href="#esquema">Esquematiza&ccedil;&atilde;o</a></li>
+		  <li><a href="#integracao">Integra&ccedil;&atilde;o</a></li>
+		</ul><!-- end .sub_nav -->
+		
+		<p>&nbsp;</p><!-- paragraph with non breaking white space; makes space between different elements of the sidebar -->
+		
+		<h3>Contato</h3>
+		
+		<ul class="contact_info">
+		  <li>UNIFESP</li>		  
+		  <li>ICT</li>		  
+		  <li>BCC</li>
+		  <li>Sistemas Distribu&iacute;dos</li>
+		  <li>rjunior(at)unifesp(dot)br</li>
+		</ul>
+	
+		<img src="_content/logo.jpg" alt="logo" class="img-right" / >
+		  	
+	  </div><!-- end #sidebar -->
+	</div><!-- end #content -->
+	
+	<div id="footer" class="fixed">
+		
+		<!-- in order to use this template legally the following links must remain intact. -->
+		<p class="credits">
+			<strong>Credits:</strong>
+		   <a href="http://www.oricemedia.ro/servicii/design-siteuri-web.html" 
+		   title="web design, realizare site-uri, pagini web">Web design</a> by  
+		   <a href="http://www.oricemedia.ro/" title="agentie web design mures">Orice Media</a>.
+		 </p>
+						   
+	</div></body>
+</html>
