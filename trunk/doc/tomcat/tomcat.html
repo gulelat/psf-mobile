@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	
+	
+
+	
+	<title> Projeto SD</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+	<meta name="description" content="Documentacao html do projeto do curso de Sistemas Distribuídos"  />
+	<meta name="keywords" content=" SD sistemas distribuidos projeto 2011" />
+	
+	<!-- links to stylesheets and scripts -->
+	<link href="../_layout/style.css" rel="stylesheet" type="text/css" />
+	
+</head>
+<body>
+		
+	<div id="header" class="fixed">
+	  <a name="topo"></a>  
+		<div class="logo">
+			<a href="../index.html">
+				<img src="../_content/logounifesp.jpg" border="0" alt="Unifesp" />
+			</a>
+		</div><!-- end .logo -->
+		
+		<div class="nav">
+			<ul>
+			  <li><a href="../index.html">Home</a></li>
+			  <li><a href="../html5/html5.html">HTML5</a></li>
+			  <li><a href="../android/android.html">Android</a></li>
+			  <li><a href="../tomcat/tomcat.html" class="active">Tomcat</a></li>
+			  <li><a href="../cassandra/cassandra.html"  >Cassandra</a></li>
+			  <li><a href="../sobre.html">Sobre</a></li>
+			</ul>
+		</div><!-- end .nav -->
+	 
+	</div><!-- end #header -->
+	
+	<div id="content" class="fixed">
+	  <div id="maincontent" class="fixed">
+	  
+	
+      <a name="inicio"></a>
+		<h2>TOMCAT</h2>
+		<img src="../_content/tomcat.jpg" border="0" alt="HTML5"/>
+		<p>&nbsp;</p>
+		<h3>A componente</h3>
+		<p>Essa componente é responsável pela disponibilização dos serviços de persistência e recuperação dos formulários
+		 editados na componente <a href="../html5/html5.html">HTML5</a> e das respostas feitas no sistema móvel da componente
+		  <a href="../android/android.html">Android</a>, para tanto foi utilizado um conjunto de Servlets
+		 para a prestação dos referidos serviços, para publicação destas últimas foi utilizado como container o servidor web Java Tomcat.<br>
+		 Resumindo, essa componente é a interface entre as outras: <a href="../html5/html5.html">HTML5</a>, 
+		 <a href="../android/android.html">Android</a> (Clientes) e <a href="../cassandra/cassandra.html">Cassandra</a> (Servidora).
+		      
+      <p>&nbsp;</p>
+		<a name="Servlets"></a>
+		<h4>Servlets</h4>
+		Para cada cliente da componente foi implementado os dois serviços (Persistência e Recuperação), possibilitando a total 
+		troca de mensagens entre Clientes e servidora.
+      <img src="../_content/esquemacomSetas.jpg" alt="" width="320" height="200" class="img-center" alt="Esquema do SD"/>
+      <p>Para a componente <a href="../html5/html5.html">HTML5</a>:
+		<ul>
+		    <li>Persistência dos formulários editados;</li>
+          <li>Recuperação dos formulários persistidos.</li>
+		</ul>
+		</p>
+		<p>Para a componente <a href="../android/android.html">Android</a>:
+		<ul>
+		    <li>Recuperação dos formulários persistidos pela <a href="../html5/html5.html">HTML5</a>;</li>
+          <li>Persistência das respostas aos formulários.</li>
+		</ul>
+		</p>
+		<a name="Mapeamento"></a>
+		<h5>Mapeamento</h5>      
+		<p>A componente <a href="../cassandra/cassandra.html">Cassandra</a> disponibilizou uma interface de conexão, criação/inserção e seleção dos dados do banco.
+		Para cada tipo de dado deve-se criar um classe java que extenda a interface da componente servidora, isso possibilita a criação e inserção dos dados
+		nas sua devidas tabelas.</p>
+		<p>Foram criadas duas classes modelo:
+		<ul>
+		    <li>Questionário, que encapsula os formulários;</li>
+          <li>Resposta, encapsula as respostas.</li>
+		</ul>
+		Mais detalhes em: <a href="../cassandra/cassandra.html#mapeamento">Mapenamento na componente Cassandra</a>.
+		</p>
+      <p>&nbsp;</p>
+		<a name="Cluster"></a>
+		<h4>Cluster</h4>
+      <p>A clusterização de servidores é o processo de criar um grupo de servidores, ligados em rede, que utiliza um software (nesse caso o Apache e o Apache Tomcat)
+      para dividir as tarefas entre eles para possibilitar um acesso contínua, uniforme e transparente aos serviços. Para a disponibilização dos <i>webservices</i> implementados nessa componente foi utilizado um cluster Tomcat de três máquinas:</p>
+		<ul>
+		    <li>Kay1, IP: 172.20.9.142;</li>
+          <li>Kay2, IP: 172.20.9.143;</li>
+          <li>Kay3, IP: 172.20.9.144;</li>
+		</ul>
+		</p>		
+		<p>Em cada uma foi replicado o conjunto de <i>webservices</i>.</p>
+      <p>&nbsp;</p>		
+		<h4>Casos de uso</h4>
+		<img src="../_content/CasoDeUsoHTML5.jpeg" alt="caso de uso" class="img-center" alt="Esquema para Caso de Uso" />
+	
+		<p>Imagine um professor que queira fazer um estudo socio-econ&ocirc;mico an&ocirc;nimo de uma classe do ensino médio. Usando seu notebook
+		em casa, ele prepara os question&aacute;rios e os grava .</p>
+		<img src="../_content/CasoDeUsoAndroid.jpeg" alt="caso de uso" class="img-center" alt="Esquema para Caso de Uso" width="800"/>
+	
+		<p>Estudantes respondem a um formulário carregado na componente <a href="../android/android.html">Android</a> em celulares. E nosso querido professor
+		persiste os dados mais tarde.</p>
+		<p>&nbsp;</p>	
+	   <a name="codigo"></a>
+      <h3>Código</h3>
+		<h5>Questionario.java</h5>
+      Encapsula e mapeia os formulários.<br>
+		<a href="PFServer/cassandra/model/Questionario.java" >Question&aacute;rio</a><br>
+		<p>&nbsp;</p>
+		<h5>Resposta.java</h5>
+      Encapsula e mapeia as respostas de formulário.<br>
+      <a href="PFServer/cassandra/model/Resposta.java" >Resposta</a>		<br>
+      <p>&nbsp;</p>
+		<h5>SaveXML.java</h5>
+      Serviço de persistência de uma string contento um XML.<br>
+		<a href="PFServer/servlet/SaveXML.java" >SaveXML</a><br>
+		<p>&nbsp;</p>
+		<h5>GetXML.java</h5>
+      Serviço de recuperação de uma string contento um XML.<br>
+		<a href="PFServer/servlet/GetXML.java" >GetXML</a><br>
+		<p>&nbsp;</p>
+		<h5>ListXML.java</h5>
+      Lista todas os registros nas classes mapeadas.<br>
+		<a href="PFServer/servlet/ListXML.java" >ListXML</a>		<br>
+		<p>&nbsp;</p>
+		<h5>SaveAnswers</h5>
+      Serviço de persistência de uma resposta a um formulário.<br>		
+		<a href="PFServer/servlet/SaveAnswers.java" >SaveAnswers</a><br>
+		<p>&nbsp;</p>
+		<h5>GetAnswers.java</h5>
+      Serviço de recuperação de uma resposta a um formulário.<br>
+		<a href="PFServer/servlet/GetAnswers.java" >GetAnswers</a><br>
+		<p>&nbsp;</p>
+		<h5>ListAnswers.java</h5>
+      Lista todas os registros na classe mapeada.<br>
+		<a href="PFServer/servlet/ListAnswers.java" >ListAnswers</a><br>
+		<p>&nbsp;</p>
+		<h5>PSFUtils</h5>
+      Encapsula a conexão ao <a href="../cassandra/cassandra.html"  >Cassandra</a>.<br>
+      <a href="PFServer/utils/PSFUtils.java" >PSFUtils</a>
+	
+		  <p><a href="#topo">Topo</a></p>
+	<!-- ************** ^ END MAIN CONTENT HERE  ^ ********************************************************************************** -->  	  
+	  </div><!-- end #maincontent -->
+	   <div id="sidebar">
+	<!-- *************** V SIDEBAR CONTENT HERE  V ********************************************************************************** -->  	
+	  <h3>Contexto</h3>
+		
+		<ul class="sidebar_nav">
+		  <li><a href="#inicio">In&iacute;cio</a></li>
+		  <li><a href="#formulario">Formul&aacute;rio</a></li>
+		  <li><a href="#codigo">C&oacute;digo</a></li>
+		</ul><!-- end .sub_nav -->
+		
+		<p>&nbsp;</p><!-- paragraph with non breaking white space; makes space between different elements of the sidebar -->
+		
+		<h3>Contato</h3>
+		
+		<ul class="contact_info">
+        <li>UNIFESP</li>		  
+		  <li>ICT</li>		  
+		  <li>BCC</li>
+		  <li>Sistemas Distribu&iacute;dos</li>
+		  <li>rjunior(at)unifesp(dot)br</li>
+		</ul>
+		
+		
+	<!-- *************** ^ SIDEBAR CONTENT ENDS HERE ^ ****************************************************************************** -->  	
+	  </div><!-- end #sidebar -->
+	</div><!-- end #content -->
+	
+	<div id="footer" class="fixed">
+		
+		<!-- in order to use this template legally the following links must remain intact. -->
+		<p class="credits">
+			<strong>Credits:</strong>
+		   <a href="http://www.oricemedia.ro/servicii/design-siteuri-web.html" 
+		   title="web design, realizare site-uri, pagini web">Web design</a> by  
+		   <a href="http://www.oricemedia.ro/" title="agentie web design mures">Orice Media</a>.
+		 </p>
+						   
+	</div></body>
+</html>

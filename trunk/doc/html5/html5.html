@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	
+	
+
+	
+	<title> Projeto SD</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	
+	<meta name="description" content="Documentacao html do projeto do curso de Sistemas Distribuídos"  />
+	<meta name="keywords" content=" SD sistemas distribuidos projeto 2011" />
+	
+	<!-- links to stylesheets and scripts -->
+	<link href="../_layout/style.css" rel="stylesheet" type="text/css" />
+	
+</head>
+<body>
+		
+	<div id="header" class="fixed">
+	<a name="topo"></a>  
+		<div class="logo">
+			<a href="../index.html">
+				<img src="../_content/logounifesp.jpg" border="0" alt="Unifesp" />
+			</a>
+		</div><!-- end .logo -->
+		
+		<div class="nav">
+			<ul>
+			  <li><a href="../index.html">Home</a></li>
+			  <li><a href="html5.html" class="active">HTML5</a></li>
+			  <li><a href="../android/android.html">Android</a></li>
+			  <li><a href="../tomcat/tomcat.html">Tomcat</a></li>
+			  <li><a href="../cassandra/cassandra.html">Cassandra</a></li>
+			  <li><a href="../sobre.html">Sobre</a></li>
+			</ul>
+		</div><!-- end .nav -->
+	 
+	</div><!-- end #header -->
+	
+	<div id="content" class="fixed">
+	  <div id="maincontent" class="fixed">
+	  
+	  <a name="inicio"></a>
+		<h2>HTML5</h2>
+		<img src="../_content/html5.jpg" border="0" alt="HTML5" width="215" height="225"/>
+		<p>&nbsp;</p>
+		<h3>A componente</h3>
+		<p>Essa componente utiliza o HTML5. O HTML5 pode ser entendido como a uni&atilde;o das linguagens 
+		CSS (Cascading Style Sheet), JavaScript com o HTML.A principal função dessa componente é a criação de formulários para serem 
+		utilizados em um dispositivo m&oacute;vel com a componente <a href="../android/android.html">Android</a> e solicitar a persistência para o 
+		<i>webservice</i> <a href="../tomcat/tomcat.html" >Tomcat</a>.</p>
+		<p>&nbsp;</p>
+		<a name="formulario"></a>
+		<h4>F&oacute;rmul&aacute;rio</h4>
+		<img src="../_content/htmlscreen1.jpg" border="0" alt="Screen"/>
+		<p>&nbsp;</p>
+		<p>Todo formulário tem opções para configuração:
+		<ul>
+		    <li>Título do formulário;</li>
+          <li>Gravá-lo localmente;</li>
+          <li>Limpá-lo;</li>
+          <li>Enviá-lo para o <i>webservice</i>.</li>
+		</ul>
+		</p>
+		<p>O formulário pode ser composto com as seguintes opções:
+      <ul>
+         <li>Texto Livre;</li>
+         <li>Opcção única;</li>
+         <li>Opção múltipla;</li>
+      </ul>
+		</p>
+		<img src="../_content/htmlscreen2.jpg" border="0" alt="Screen" width="804"/>
+		<h5>Características</h5>
+		<p>
+      Cada campo tem características que podem ser editadas:
+      <ul>
+         <li>Rótulo do Campo;</li>
+         <li>Nome do campo, utilizado internamente no código;</li>
+         <li>Posicionamento do campo dentro do formulário;</li>
+         <li>Texto de ajuda do campo, exibido para o usuário;</li>
+         <li>Definição de campo obrigatório;</li>
+         <li>Um valor padrão.</li>                         
+      </ul>
+      Os campos de texto além das já listadas tem:
+      <ul>
+         <li>Tamanho máximo do valor do campo, em número de caracteres;</li>
+         <li>Tipo de dado do campo, entre texto livre e apenas números.</li>                         
+      </ul>
+      Os campos de opção tem essas exclusivas:
+      <ul>
+         <li>Quantidade de opções;</li>
+         <li>Posicionamento das opções;</li>                         
+         <li>Rótulo e valor de cada opção.</li>
+      </ul>
+		</p>
+      <h5>Adição</h5>		
+		<p>
+      A adição dos campos no formulário ocorre através do recurso Drag and Drop utilizando o mouse de maneira bem intuitiva.
+		</p>
+		<img src="../_content/htmlscreen3.jpg" border="0" alt="Screen"/>
+		<p>&nbsp;</p>
+		<h5>Envio</h5>
+		<p>O Envio de dados para o servidor ocorre com a utilização da função XmlHttpRequest uma API disponibilizada pelo navegador,
+		que possibilita ao <i>website</i> iniciar uma requisição HTTP. O formulário é representado por um arquivo XML, contendo todos
+		seus componetes e suas propriedades, esse XML é enviado ao<i>webservice</i> para persistência.</p>
+      <p>&nbsp;</p>
+		<h5>Gravar</h5>
+      <p>Esse botão representa a função de gravação do formulário antes do envio. <br>Essa gravação é possibilitada utilizando o formato
+      JSON (Java Script Object Notation) para converter cada atrítuto dos campos editáveis em uma string tornando possível a utilização do 
+      recurso do HTML5 WebStorage. O WebStorage é o substitudo dos cookies, permite gravar uma pilha de strings, que podem ser recuperadas 
+      pela <i>website</i>.
+      </p>
+      <h4>Caso de uso</h4>
+		<img src="../_content/CasoDeUsoHTML5.jpeg" alt="caso de uso" class="img-center" alt="Esquema para Caso de Uso" />
+	
+		<p>Imagine um professor que queira fazer um estudo socio-econ&ocirc;mico an&ocirc;nimo de uma classe do ensino médio. Usando seu notebook
+		em casa, ele prepara os question&aacute;rios e os grava .</p>
+      <a name="codigo"></a>
+      <h3>Código</h3>
+      <h5>Classes.js</h5>
+      Implementa as classes dos componentes do formulário, assim como o próprio fórmulário.<br>
+		<a href="html5/classes.js.txt" >classes.js</a><br>
+		<p>&nbsp;</p>
+		<h5>jquery.min.js</h5>
+      Biblioteca básica JQuery.<br>
+      <a href="html5/jquery.min.js.txt" >jquery.min.js</a><br>
+      <p>&nbsp;</p>
+      <h5>jquery.numeric.js</h5>
+      Biblioteca para manuseio número do JQuery.<br>
+      <a href="html5/jquery.numeric.js.txt" >jquery.numeric.js</a><br>
+      <p>&nbsp;</p>
+      <h5>json.min.js</h5>
+      Biblioteca básica JSON.<br>
+      <a href="html5/json.min.js.txt" >json.min.js</a><br>
+      <p>&nbsp;</p>
+      <h5>script.js</h5>
+      Implementa os <i>scripts</i> inerentes à componente, utiliza as bibliotecas já listadas.<br>
+      <a href="html5/script.js.txt" >script.js</a><br>
+      <p>&nbsp;</p>
+      <h5>index.html</h5>
+      Página principal da componente.<br>
+      <a href="html5/index.html.txt" >index.html</a><br>
+      <p>&nbsp;</p>
+      <h5>estilo.css</h5>
+      Contêm as configurações de estilo de index.html.<br>
+      <a href="html5/estilo.css.txt" >estilo.css</a>
+   	<p><a href="#topo">Topo</a></p>
+		  
+	<!-- ************** ^ END MAIN CONTENT HERE  ^ ********************************************************************************** -->  	  
+	  </div><!-- end #maincontent -->
+	   <div id="sidebar">
+	<!-- *************** V SIDEBAR CONTENT HERE  V ********************************************************************************** -->  	
+	
+		<h3>Contexto</h3>
+		
+		<ul class="sidebar_nav">
+		  <li><a href="#inicio">In&iacute;cio</a></li>
+		  <li><a href="#formulario">Formul&aacute;rio</a></li>
+		  <li><a href="#codigo">C&oacute;digo</a></li>
+		</ul><!-- end .sub_nav -->
+		
+		<p>&nbsp;</p><!-- paragraph with non breaking white space; makes space between different elements of the sidebar -->
+		
+		<h3>Contato</h3>
+		
+		<ul class="contact_info">
+		  <li>UNIFESP</li>		  
+		  <li>ICT</li>		  
+		  <li>BCC</li>
+		  <li>Sistemas Distribu&iacute;dos</li>
+		  <li>rjunior(at)unifesp(dot)br</li>
+		</ul>
+	
+		<img src="../_content/logo.jpg" alt="logo" class="img-right" / >
+		
+	<!-- *************** ^ SIDEBAR CONTENT ENDS HERE ^ ****************************************************************************** -->  	
+	  </div><!-- end #sidebar -->
+	</div><!-- end #content -->
+	
+	<div id="footer" class="fixed">
+		
+		<!-- in order to use this template legally the following links must remain intact. -->
+		<p class="credits">
+			<strong>Credits:</strong>
+		   <a href="http://www.oricemedia.ro/servicii/design-siteuri-web.html" 
+		   title="web design, realizare site-uri, pagini web">Web design</a> by  
+		   <a href="http://www.oricemedia.ro/" title="agentie web design mures">Orice Media</a>.
+		 </p>
+						   
+	</div></body>
+</html>
